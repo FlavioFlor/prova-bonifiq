@@ -1,4 +1,4 @@
-﻿namespace ProvaPub.Contracts;
+﻿namespace ProvaPub.Contracts.Services;
 
 public interface IRandomService
 {

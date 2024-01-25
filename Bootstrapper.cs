@@ -1,4 +1,6 @@
-﻿using ProvaPub.Contracts;
+﻿using ProvaPub.Contracts.Repositories;
+using ProvaPub.Contracts.Services;
+using ProvaPub.Repositories;
 using ProvaPub.Services;
 
 namespace ProvaPub;
@@ -14,4 +16,14 @@ public static class Bootstrapper
 
         return services;
     }
+    public static IServiceCollection AddRepository(this IServiceCollection services)
+    {
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IProductReposiory, ProductReposiory>();
+        services.AddScoped<IOrderReposiory, OrderReposiory>();
+
+        return services;
+    }
+
+    
 }

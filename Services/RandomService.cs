@@ -1,4 +1,4 @@
-﻿using ProvaPub.Contracts;
+﻿using ProvaPub.Contracts.Services;
 
 namespace ProvaPub.Services;
 

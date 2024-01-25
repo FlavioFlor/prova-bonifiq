@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProvaPub.Contracts;
+using ProvaPub.Contracts.Services;
 using ProvaPub.Dtos;
-using ProvaPub.Models;
+using ProvaPub.Entities;
 
 namespace ProvaPub.Controllers;
 
@@ -26,15 +26,17 @@ public class Parte2Controller :  ControllerBase
 	}
 	
 	[HttpGet("products")]
-	public PaginatedResponseDto<Product> ListProducts([FromQuery] PaginatedRequestDto request)
+	public async Task<PaginatedResponseDto<Product>> ListProducts([FromQuery] PaginatedRequestDto request)
 	{
-		return _productService.ListProducts(request);
+		var products = await _productService.ListProductsAsync(request);
+
+        return products;
 	}
 
 	[HttpGet("customers")]
-	public PaginatedResponseDto<Customer> ListCustomers([FromQuery] PaginatedRequestDto request)
+	public async Task<PaginatedResponseDto<Customer>> ListCustomers([FromQuery] PaginatedRequestDto request)
 	{
-		var customers = _customerService.ListCustomers(request);
+		var customers = await _customerService.ListCustomers(request);
 		return customers;
 	}
 }
