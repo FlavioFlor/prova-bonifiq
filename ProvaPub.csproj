@@ -21,4 +21,9 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\CustomerList.cs" />
+    <Compile Remove="Models\ProductList.cs" />
+  </ItemGroup>
+
 </Project>

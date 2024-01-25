@@ -1,18 +1,15 @@
-﻿namespace ProvaPub.Services
+﻿using ProvaPub.Contracts;
+
+namespace ProvaPub.Services;
+
+public sealed class RandomService : IRandomService
 {
-	public class RandomService
+	private readonly Random _random;
+
+	public RandomService()
 	{
-        private readonly Random _random;
-
-		public RandomService()
-		{
-			var seed = Guid.NewGuid().GetHashCode();
-            _random = new Random(seed);
-        }
-		public int GetRandom()
-		{
-			return _random.Next(100);
-		}
-
+		var seed = Guid.NewGuid().GetHashCode();
+		_random = new Random(seed);
 	}
+	public int GetRandom() => _random.Next(100);
 }

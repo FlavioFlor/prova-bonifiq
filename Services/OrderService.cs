@@ -1,8 +1,9 @@
-﻿using ProvaPub.Models;
+﻿using ProvaPub.Contracts;
+using ProvaPub.Models;
 
 namespace ProvaPub.Services
 {
-	public class OrderService
+	public class OrderService : IOrderService
 	{
 		public async Task<Order> PayOrder(string paymentMethod, decimal paymentValue, int customerId)
 		{
