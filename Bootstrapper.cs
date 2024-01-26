@@ -25,5 +25,5 @@ public static class Bootstrapper
         return services;
     }
 
-    
+
 }

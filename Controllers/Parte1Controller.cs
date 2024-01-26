@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProvaPub.Contracts.Services;
-using ProvaPub.Services;
 
 namespace ProvaPub.Controllers
 {
@@ -9,19 +8,19 @@ namespace ProvaPub.Controllers
     /// Faça as alterações para que o retorno seja sempre diferente
     /// </summary>
     [ApiController]
-	[Route("[controller]")]
-	public class Parte1Controller :  ControllerBase
-	{
-		private readonly IRandomService _randomService;
+    [Route("[controller]")]
+    public class Parte1Controller : ControllerBase
+    {
+        private readonly IRandomService _randomService;
 
-		public Parte1Controller(IRandomService randomService)
-		{
-			_randomService = randomService;
-		}
-		[HttpGet]
-		public int Index()
-		{
-			return _randomService.GetRandom();
-		}
-	}
+        public Parte1Controller(IRandomService randomService)
+        {
+            _randomService = randomService;
+        }
+        [HttpGet]
+        public int Index()
+        {
+            return _randomService.GetRandom();
+        }
+    }
 }

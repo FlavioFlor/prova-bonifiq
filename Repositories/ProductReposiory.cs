@@ -19,8 +19,8 @@ public sealed class ProductReposiory : IProductReposiory
     public async Task<IEnumerable<Product>> GetProductsPaginatedAsync(PaginatedRequestDto request)
     {
         var products = await _ctx.Products.Where(product => product.Name.ToLower().StartsWith(request.Filter.ToLower()))
-                                               .PageBy(request)
-			                                   .ToListAsync();
+                                          .PageBy(request)
+                                          .ToListAsync();
         return products;
     }
 

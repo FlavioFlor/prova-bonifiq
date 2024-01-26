@@ -13,19 +13,19 @@ namespace ProvaPub.Controllers;
 /// </summary>
 [ApiController]
 [Route("[controller]")]
-public class Parte4Controller :  ControllerBase
+public class Parte4Controller : ControllerBase
 {
-	private readonly ICustomerService _customerService;
-	public Parte4Controller(ICustomerService customerService)
-	{
-		_customerService = customerService;
-	}
+    private readonly ICustomerService _customerService;
+    public Parte4Controller(ICustomerService customerService)
+    {
+        _customerService = customerService;
+    }
 
-	[HttpGet("CanPurchase")]
-	public async Task<bool> CanPurchase(int customerId, decimal purchaseValue)
-	{
-		var canPurchase = await _customerService.CanPurchase(customerId, purchaseValue);
+    [HttpGet("CanPurchase")]
+    public async Task<bool> CanPurchase(int customerId, decimal purchaseValue)
+    {
+        var canPurchase = await _customerService.CanPurchase(customerId, purchaseValue);
 
-		return canPurchase;
-	}
+        return canPurchase;
+    }
 }

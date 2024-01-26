@@ -13,17 +13,17 @@ namespace ProvaPub.Controllers;
 /// </summary>
 [ApiController]
 [Route("[controller]")]
-public class Parte3Controller :  ControllerBase
+public class Parte3Controller : ControllerBase
 {
-	private readonly IOrderService _orderService;
-	public Parte3Controller(IOrderService orderService)
-	{
-		_orderService = orderService;
-	}
-	
-	[HttpGet("orders")]
-	public async Task<Order> PlaceOrder(PaymentMethod paymentMethod, decimal paymentValue, int customerId)
-	{
-		return await _orderService.PayOrder(paymentMethod, paymentValue, customerId);
-	}
+    private readonly IOrderService _orderService;
+    public Parte3Controller(IOrderService orderService)
+    {
+        _orderService = orderService;
+    }
+
+    [HttpGet("orders")]
+    public async Task<Order> PlaceOrder(PaymentMethod paymentMethod, decimal paymentValue, int customerId)
+    {
+        return await _orderService.PayOrder(paymentMethod, paymentValue, customerId);
+    }
 }

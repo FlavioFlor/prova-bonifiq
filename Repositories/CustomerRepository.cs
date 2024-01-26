@@ -1,5 +1,4 @@
-﻿using Castle.Core.Resource;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ProvaPub.Contexts;
 using ProvaPub.Contracts.Repositories;
 using ProvaPub.Dtos;
@@ -19,8 +18,8 @@ public sealed class CustomerRepository : ICustomerRepository
 
     public async Task<int> CountOrdersInThisMonthAsync(int customerId, DateTime baseDate)
     {
-        var result = await _ctx.Orders.CountAsync(s => s.CustomerId == customerId && s.OrderDate >= baseDate);
-        
+        var result = await _ctx.Orders.CountAsync(order => order.CustomerId == customerId && order.OrderDate >= baseDate);
+
         return result;
     }
 
@@ -34,7 +33,7 @@ public sealed class CustomerRepository : ICustomerRepository
 
     public async Task<int> CountCustomerInThisMonthAsync(int customerId)
     {
-        var result = await _ctx.Customers.CountAsync(s => s.Id == customerId && s.Orders.Any());
+        var result = await _ctx.Customers.CountAsync(order => order.Id == customerId && order.Orders.Any());
 
         return result;
     }
